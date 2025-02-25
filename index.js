@@ -10,14 +10,30 @@ let apiKey =  'bf4815d2000f4d17aa40c9e5b4ebc565'
 let newsAccordian = document.getElementById('newsAccordian');
 
 // create the get request
-const xhr = new XMLHttpRequest();
-xhr.open('GET', `https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`,true);
-xhr.onload = function(){
-    if(this.status === 200){
-        let response = JSON.parse(this.responseText);
-        let articles = response.articles;
-        console.log(articles);
-        let newsHtml = "";
+// const xhr = new XMLHttpRequest();
+// xhr.open('GET', `https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`,true);
+// xhr.onload = function(){
+//     if(this.status === 200){
+//         let response = JSON.parse(this.responseText);
+//         let articles = response.articles;
+//         console.log(articles);
+//         let newsHtml = "";
+
+// fetching the data by usng the fetch()
+
+function getData(){
+    const response = fetch((response)=>{
+        return response.JSON();
+    })
+    .then((data)=>{
+        return data;
+    })
+    .catch((error)=>{
+        console.log(error);
+    });
+    return response;
+}
+
 
         articles.forEach(function(element) {
             
